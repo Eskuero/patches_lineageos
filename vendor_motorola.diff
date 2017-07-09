@@ -1,0 +1,28 @@
+diff --git a/msm8916-common/msm8916-common-vendor.mk b/msm8916-common/msm8916-common-vendor.mk
+index 78b9838b..a61b83d9 100644
+--- a/msm8916-common/msm8916-common-vendor.mk
++++ b/msm8916-common/msm8916-common-vendor.mk
+@@ -200,8 +200,6 @@ PRODUCT_COPY_FILES += \
+ PRODUCT_PACKAGES += \
+     libril \
+     libHevcSwDecoder \
+-    TimeService \
+-    qcrilmsgtunnel \
+     ims \
+     imssettings \
+     imscmlibrary \
+diff --git a/qcom-common/qcom-common-vendor.mk b/qcom-common/qcom-common-vendor.mk
+index b6c598da..7d6e716f 100644
+--- a/qcom-common/qcom-common-vendor.mk
++++ b/qcom-common/qcom-common-vendor.mk
+@@ -18,10 +18,6 @@
+ 
+ $(call inherit-product, vendor/motorola/qcom-common/qcom-common-vendor-blobs.mk)
+ 
+-# Prebuilt APKs
+-PRODUCT_PACKAGES += \
+-    TimeService
+-
+ # Prebuilt libs needed for compilation
+ PRODUCT_PACKAGES += \
+     libtime_genoff

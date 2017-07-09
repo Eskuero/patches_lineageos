@@ -1,0 +1,10 @@
+diff --git a/system.prop b/system.prop
+index cef6caa..6cc77e4 100644
+--- a/system.prop
++++ b/system.prop
+@@ -6,4 +6,4 @@ persist.audio.fluence.voicecall=true
+ ro.qc.sdk.audio.fluencetype=fluence
+ 
+ # Display
+-ro.sf.lcd_density=480
++ro.sf.lcd_density=400

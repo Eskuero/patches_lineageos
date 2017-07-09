@@ -1,0 +1,76 @@
+diff --git a/config/common.mk b/config/common.mk
+index 2022b6c9..66a62188 100644
+--- a/config/common.mk
++++ b/config/common.mk
+@@ -99,18 +99,12 @@ PRODUCT_PACKAGES += \
+ # Required CM packages
+ PRODUCT_PACKAGES += \
+     BluetoothExt \
+-    CMAudioService \
+     CMParts \
+-    Development \
+-    Profiles \
+-    WeatherManagerService
++    Profiles
+ 
+ # Optional CM packages
+ PRODUCT_PACKAGES += \
+-    libemoji \
+-    LiveWallpapersPicker \
+-    PhotoTable \
+-    Terminal
++    libemoji
+ 
+ # Include explicitly to work around GMS issues
+ PRODUCT_PACKAGES += \
+@@ -119,22 +113,12 @@ PRODUCT_PACKAGES += \
+ 
+ # Custom CM packages
+ PRODUCT_PACKAGES += \
+-    AudioFX \
+     CMSettingsProvider \
+-    CMUpdater \
+     LineageSetupWizard \
+-    Eleven \
+     ExactCalculator \
+-    Jelly \
+-    LiveLockScreenService \
+     LockClock \
+     Trebuchet \
+-    WallpaperPicker \
+-    WeatherProvider
+-
+-# Exchange support
+-PRODUCT_PACKAGES += \
+-    Exchange2
++    WallpaperPicker
+ 
+ # Extra tools in CM
+ PRODUCT_PACKAGES += \
+diff --git a/config/common_full.mk b/config/common_full.mk
+index c475a68e..df030a2a 100644
+--- a/config/common_full.mk
++++ b/config/common_full.mk
+@@ -2,7 +2,3 @@
+ $(call inherit-product, vendor/cm/config/common.mk)
+ 
+ PRODUCT_SIZE := full
+-
+-# Recorder
+-PRODUCT_PACKAGES += \
+-    Recorder
+diff --git a/config/telephony.mk b/config/telephony.mk
+index d6a5b01d..01959877 100644
+--- a/config/telephony.mk
++++ b/config/telephony.mk
+@@ -8,9 +8,7 @@ PRODUCT_COPY_FILES += \
+ 
+ # Telephony packages
+ PRODUCT_PACKAGES += \
+-    messaging \
+-    Stk \
+-    CellBroadcastReceiver
++    messaging
+ 
+ # Default ringtone
+ PRODUCT_PROPERTY_OVERRIDES += \

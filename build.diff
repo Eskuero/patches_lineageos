@@ -1,0 +1,114 @@
+diff --git a/target/product/core.mk b/target/product/core.mk
+index 28558c55f..e04b65531 100644
+--- a/target/product/core.mk
++++ b/target/product/core.mk
+@@ -21,10 +21,7 @@
+ # core_tiny.mk in addition to core_minimal.mk.
+ 
+ PRODUCT_PACKAGES += \
+-    BasicDreams \
+     BlockedNumberProvider \
+-    BookmarkProvider \
+-    Browser2 \
+     Calendar \
+     CalendarProvider \
+     CaptivePortalLogin \
+@@ -33,9 +30,7 @@ PRODUCT_PACKAGES += \
+     DeskClock \
+     DocumentsUI \
+     DownloadProviderUi \
+-    Email \
+     ExactCalculator \
+-    Exchange2 \
+     ExternalStorageProvider \
+     FusedLocation \
+     InputDevices \
+@@ -44,7 +39,6 @@ PRODUCT_PACKAGES += \
+     Launcher2 \
+     ManagedProvisioning \
+     MtpDocumentsProvider \
+-    PicoTts \
+     PacProcessor \
+     libpac \
+     PrintSpooler \
+diff --git a/target/product/core_minimal.mk b/target/product/core_minimal.mk
+index 0e60013f5..50a1eb6fd 100644
+--- a/target/product/core_minimal.mk
++++ b/target/product/core_minimal.mk
+@@ -24,18 +24,14 @@ PRODUCT_NAME := core
+ 
+ PRODUCT_PACKAGES += \
+     BackupRestoreConfirmation \
+-    CtsShimPrebuilt \
+-    CtsShimPrivPrebuilt \
+     DownloadProvider \
+     ExtShared \
+     ExtServices \
+-    HTMLViewer \
+     MediaProvider \
+     PackageInstaller \
+     SettingsProvider \
+     Shell \
+     StatementService \
+-    WallpaperBackup \
+     bcc \
+     bu \
+     com.android.future.usb.accessory \
+diff --git a/target/product/core_tiny.mk b/target/product/core_tiny.mk
+index ec2fa41d1..bf96ebde1 100644
+--- a/target/product/core_tiny.mk
++++ b/target/product/core_tiny.mk
+@@ -37,14 +37,11 @@ PRODUCT_PACKAGES += \
+ 
+ PRODUCT_PACKAGES += \
+     BackupRestoreConfirmation \
+-    CtsShimPrebuilt \
+-    CtsShimPrivPrebuilt \
+     DefaultContainerService \
+     ExtShared \
+     ExtServices \
+     SettingsProvider \
+     Shell \
+-    WallpaperBackup \
+     bcc \
+     bu \
+     com.android.location.provider \
+diff --git a/target/product/generic_no_telephony.mk b/target/product/generic_no_telephony.mk
+index 6c23fbb7d..b9f61ddf2 100644
+--- a/target/product/generic_no_telephony.mk
++++ b/target/product/generic_no_telephony.mk
+@@ -20,14 +20,10 @@
+ PRODUCT_PACKAGES := \
+     Bluetooth \
+     BluetoothMidiService \
+-    Camera2 \
+-    Gallery2 \
+-    Music \
+     MusicFX \
+     OneTimeInitializer \
+     Provision \
+     SystemUI \
+-    EasterEgg \
+     WallpaperCropper
+ 
+ PRODUCT_PACKAGES += \
+diff --git a/target/product/sdk_base.mk b/target/product/sdk_base.mk
+index fa257aeff..17360671f 100644
+--- a/target/product/sdk_base.mk
++++ b/target/product/sdk_base.mk
+@@ -32,7 +32,6 @@ PRODUCT_PACKAGES := \
+ 	libwnndict \
+ 	libWnnEngDic \
+ 	libWnnJpnDic \
+-	LiveWallpapersPicker \
+ 	Mms \
+ 	Music \
+ 	OpenWnn \
+@@ -44,7 +43,6 @@ PRODUCT_PACKAGES := \
+ 	SoftKeyboard \
+ 	sqlite3 \
+ 	SystemUI \
+-	EasterEgg \
+ 	WidgetPreview
+ 
+ # Define the host tools and libs that are parts of the SDK.
