@@ -1,0 +1,15 @@
+diff --git a/msm8916.mk b/msm8916.mk
+index a808787..7197879 100644
+--- a/msm8916.mk
++++ b/msm8916.mk
+@@ -79,10 +79,6 @@ PRODUCT_PACKAGES += \
+     libbson \
+     Snap
+ 
+-# CMActions
+-PRODUCT_PACKAGES += \
+-    CMActions
+-
+ # Display
+ PRODUCT_PACKAGES += \
+     gralloc.msm8916 \
