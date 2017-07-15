@@ -1,5 +1,5 @@
 diff --git a/services/core/java/com/android/server/DeviceIdleController.java b/services/core/java/com/android/server/DeviceIdleController.java
-index ea7b90e65ae..b169573beaf 100644
+index ea7b90e65ae..c1c8fc67c1e 100644
 --- a/services/core/java/com/android/server/DeviceIdleController.java
 +++ b/services/core/java/com/android/server/DeviceIdleController.java
 @@ -84,8 +84,6 @@ import com.android.internal.util.FastXmlSerializer;
@@ -11,8 +11,46 @@ index ea7b90e65ae..b169573beaf 100644
  import org.xmlpull.v1.XmlPullParser;
  import org.xmlpull.v1.XmlPullParserException;
  import org.xmlpull.v1.XmlSerializer;
-@@ -1319,8 +1317,7 @@ public class DeviceIdleController extends SystemService
- 
+@@ -972,34 +970,9 @@ public class DeviceIdleController extends SystemService
+
+     @Override
+     public void onAnyMotionResult(int result) {
+-        if (DEBUG) Slog.d(TAG, "onAnyMotionResult(" + result + ")");
+-        if (result != AnyMotionDetector.RESULT_UNKNOWN) {
+-            synchronized (this) {
+-                cancelSensingTimeoutAlarmLocked();
+-            }
+-        }
+-        if ((result == AnyMotionDetector.RESULT_MOVED) ||
+-            (result == AnyMotionDetector.RESULT_UNKNOWN)) {
+-            synchronized (this) {
+-                handleMotionDetectedLocked(mConstants.INACTIVE_TIMEOUT, "non_stationary");
+-            }
+-        } else if (result == AnyMotionDetector.RESULT_STATIONARY) {
+-            if (mState == STATE_SENSING) {
+-                // If we are currently sensing, it is time to move to locating.
+-                synchronized (this) {
+-                    mNotMoving = true;
+-                    stepIdleStateLocked("s:stationary");
+-                }
+-            } else if (mState == STATE_LOCATING) {
+-                // If we are currently locating, note that we are not moving and step
+-                // if we have located the position.
+-                synchronized (this) {
+-                    mNotMoving = true;
+-                    if (mLocated) {
+-                        stepIdleStateLocked("s:stationary");
+-                    }
+-                }
+-            }
++        synchronized (this) {
++            mNotMoving = true;
++            stepIdleStateLocked("s:stationary");
+         }
+     }
+
+@@ -1319,8 +1292,7 @@ public class DeviceIdleController extends SystemService
+
          synchronized (this) {
              mLightEnabled = mDeepEnabled = getContext().getResources().getBoolean(
 -                    com.android.internal.R.bool.config_enableAutoPowerModes) &&
@@ -21,6 +59,23 @@ index ea7b90e65ae..b169573beaf 100644
              SystemConfig sysConfig = SystemConfig.getInstance();
              ArraySet<String> allowPowerExceptIdle = sysConfig.getAllowInPowerSaveExceptIdle();
              for (int i=0; i<allowPowerExceptIdle.size(); i++) {
+@@ -2274,13 +2246,13 @@ public class DeviceIdleController extends SystemService
+
+     void scheduleAlarmLocked(long delay, boolean idleUntil) {
+         if (DEBUG) Slog.d(TAG, "scheduleAlarmLocked(" + delay + ", " + idleUntil + ")");
+-        if (mMotionSensor == null) {
++        // if (mMotionSensor == null) {
+             // If there is no motion sensor on this device, then we won't schedule
+             // alarms, because we can't determine if the device is not moving.  This effectively
+             // turns off normal execution of device idling, although it is still possible to
+             // manually poke it by pretending like the alarm is going off.
+-            return;
+-        }
++            // return;
++        // }
+         mNextAlarmTime = SystemClock.elapsedRealtime() + delay;
+         if (idleUntil) {
+             mAlarmManager.setIdleUntil(AlarmManager.ELAPSED_REALTIME_WAKEUP,
 diff --git a/services/usage/Android.mk b/services/usage/Android.mk
 index cc3ff9d1bd4..f1cbe98586b 100644
 --- a/services/usage/Android.mk
@@ -39,7 +94,7 @@ index 0e8f2289f91..04104b5c70d 100644
 @@ -78,8 +78,6 @@ import com.android.internal.util.ArrayUtils;
  import com.android.internal.util.IndentingPrintWriter;
  import com.android.server.SystemService;
- 
+
 -import org.cyanogenmod.internal.util.PackageManagerUtils;
 -
  import java.io.File;
@@ -47,7 +102,7 @@ index 0e8f2289f91..04104b5c70d 100644
  import java.io.PrintWriter;
 @@ -191,8 +189,7 @@ public class UsageStatsService extends SystemService implements
                  null, mHandler);
- 
+
          mAppIdleEnabled = getContext().getResources().getBoolean(
 -                com.android.internal.R.bool.config_enableAutoPowerModes) &&
 -                PackageManagerUtils.isAppInstalled(getContext(), "com.google.android.gms");
