@@ -1,11 +1,11 @@
 diff --git a/services/core/java/com/android/server/DeviceIdleController.java b/services/core/java/com/android/server/DeviceIdleController.java
-index ea7b90e65ae..598f2401a7c 100644
+index ea7b90e65ae..312577d9632 100644
 --- a/services/core/java/com/android/server/DeviceIdleController.java
 +++ b/services/core/java/com/android/server/DeviceIdleController.java
 @@ -84,8 +84,6 @@ import com.android.internal.util.FastXmlSerializer;
  import com.android.internal.util.XmlUtils;
  import com.android.server.am.BatteryStatsService;
- 
+
 -import org.cyanogenmod.internal.util.PackageManagerUtils;
 -
  import org.xmlpull.v1.XmlPullParser;
@@ -75,7 +75,7 @@ index ea7b90e65ae..598f2401a7c 100644
              mLightEnabled = mDeepEnabled = getContext().getResources().getBoolean(
 -                    com.android.internal.R.bool.config_enableAutoPowerModes) &&
 -                    PackageManagerUtils.isAppInstalled(getContext(), "com.google.android.gms");
-+                    com.android.internal.R.bool.config_enableAutoPowerModes); "com.google.android.gms");
++                    com.android.internal.R.bool.config_enableAutoPowerModes);
              SystemConfig sysConfig = SystemConfig.getInstance();
              ArraySet<String> allowPowerExceptIdle = sysConfig.getAllowInPowerSaveExceptIdle();
              for (int i=0; i<allowPowerExceptIdle.size(); i++) {
@@ -101,9 +101,9 @@ index cc3ff9d1bd4..f1cbe98586b 100644
 --- a/services/usage/Android.mk
 +++ b/services/usage/Android.mk
 @@ -9,6 +9,4 @@ LOCAL_SRC_FILES += \
- 
+
  LOCAL_JAVA_LIBRARIES := services.core
- 
+
 -LOCAL_JAVA_LIBRARIES += org.cyanogenmod.platform.internal
 -
  include $(BUILD_STATIC_JAVA_LIBRARY)
