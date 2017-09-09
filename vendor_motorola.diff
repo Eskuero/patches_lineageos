@@ -1,8 +1,8 @@
 diff --git a/msm8916-common/msm8916-common-vendor.mk b/msm8916-common/msm8916-common-vendor.mk
-index 78b9838b..a61b83d9 100644
+index a7433770..ce07970a 100644
 --- a/msm8916-common/msm8916-common-vendor.mk
 +++ b/msm8916-common/msm8916-common-vendor.mk
-@@ -200,8 +200,6 @@ PRODUCT_COPY_FILES += \
+@@ -199,8 +199,6 @@ PRODUCT_COPY_FILES += \
  PRODUCT_PACKAGES += \
      libril \
      libHevcSwDecoder \

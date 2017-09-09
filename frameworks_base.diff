@@ -1,5 +1,5 @@
 diff --git a/services/core/java/com/android/server/DeviceIdleController.java b/services/core/java/com/android/server/DeviceIdleController.java
-index ea7b90e65ae..c1c8fc67c1e 100644
+index ea7b90e65ae..598f2401a7c 100644
 --- a/services/core/java/com/android/server/DeviceIdleController.java
 +++ b/services/core/java/com/android/server/DeviceIdleController.java
 @@ -84,8 +84,6 @@ import com.android.internal.util.FastXmlSerializer;
@@ -11,7 +11,7 @@ index ea7b90e65ae..c1c8fc67c1e 100644
  import org.xmlpull.v1.XmlPullParser;
  import org.xmlpull.v1.XmlPullParserException;
  import org.xmlpull.v1.XmlSerializer;
-@@ -972,34 +970,9 @@ public class DeviceIdleController extends SystemService
+@@ -972,35 +970,35 @@ public class DeviceIdleController extends SystemService
 
      @Override
      public void onAnyMotionResult(int result) {
@@ -28,14 +28,28 @@ index ea7b90e65ae..c1c8fc67c1e 100644
 -            }
 -        } else if (result == AnyMotionDetector.RESULT_STATIONARY) {
 -            if (mState == STATE_SENSING) {
--                // If we are currently sensing, it is time to move to locating.
--                synchronized (this) {
--                    mNotMoving = true;
--                    stepIdleStateLocked("s:stationary");
--                }
++        // if (DEBUG) Slog.d(TAG, "onAnyMotionResult(" + result + ")");
++        // if (result != AnyMotionDetector.RESULT_UNKNOWN) {
++            // synchronized (this) {
++                // cancelSensingTimeoutAlarmLocked();
++            // }
++        // }
++        // if ((result == AnyMotionDetector.RESULT_MOVED) ||
++            // (result == AnyMotionDetector.RESULT_UNKNOWN)) {
++            // synchronized (this) {
++                // handleMotionDetectedLocked(mConstants.INACTIVE_TIMEOUT, "non_stationary");
++            // }
++        // } else if (result == AnyMotionDetector.RESULT_STATIONARY) {
++            // if (mState == STATE_SENSING) {
+                 // If we are currently sensing, it is time to move to locating.
+                 synchronized (this) {
+                     mNotMoving = true;
+                     stepIdleStateLocked("s:stationary");
+                 }
 -            } else if (mState == STATE_LOCATING) {
--                // If we are currently locating, note that we are not moving and step
--                // if we have located the position.
++            // } else if (mState == STATE_LOCATING) {
+                 // If we are currently locating, note that we are not moving and step
+                 // if we have located the position.
 -                synchronized (this) {
 -                    mNotMoving = true;
 -                    if (mLocated) {
@@ -43,23 +57,29 @@ index ea7b90e65ae..c1c8fc67c1e 100644
 -                    }
 -                }
 -            }
-+        synchronized (this) {
-+            mNotMoving = true;
-+            stepIdleStateLocked("s:stationary");
-         }
+-        }
++                // synchronized (this) {
++                    // mNotMoving = true;
++                    // if (mLocated) {
++                        // stepIdleStateLocked("s:stationary");
++                    // }
++                // }
++            // }
++        // }
      }
 
-@@ -1319,8 +1292,7 @@ public class DeviceIdleController extends SystemService
+     private static final int MSG_WRITE_CONFIG = 1;
+@@ -1319,8 +1317,7 @@ public class DeviceIdleController extends SystemService
 
          synchronized (this) {
              mLightEnabled = mDeepEnabled = getContext().getResources().getBoolean(
 -                    com.android.internal.R.bool.config_enableAutoPowerModes) &&
 -                    PackageManagerUtils.isAppInstalled(getContext(), "com.google.android.gms");
-+                    com.android.internal.R.bool.config_enableAutoPowerModes);
++                    com.android.internal.R.bool.config_enableAutoPowerModes); "com.google.android.gms");
              SystemConfig sysConfig = SystemConfig.getInstance();
              ArraySet<String> allowPowerExceptIdle = sysConfig.getAllowInPowerSaveExceptIdle();
              for (int i=0; i<allowPowerExceptIdle.size(); i++) {
-@@ -2274,13 +2246,13 @@ public class DeviceIdleController extends SystemService
+@@ -2274,13 +2271,13 @@ public class DeviceIdleController extends SystemService
 
      void scheduleAlarmLocked(long delay, boolean idleUntil) {
          if (DEBUG) Slog.d(TAG, "scheduleAlarmLocked(" + delay + ", " + idleUntil + ")");

@@ -1,8 +1,8 @@
 diff --git a/config/common.mk b/config/common.mk
-index 2022b6c9..66a62188 100644
+index 2d27a50d..6f4962b2 100644
 --- a/config/common.mk
 +++ b/config/common.mk
-@@ -99,18 +99,12 @@ PRODUCT_PACKAGES += \
+@@ -97,18 +97,12 @@ PRODUCT_PACKAGES += \
  # Required CM packages
  PRODUCT_PACKAGES += \
      BluetoothExt \
@@ -23,20 +23,19 @@ index 2022b6c9..66a62188 100644
  
  # Include explicitly to work around GMS issues
  PRODUCT_PACKAGES += \
-@@ -119,22 +113,12 @@ PRODUCT_PACKAGES += \
+@@ -117,21 +111,12 @@ PRODUCT_PACKAGES += \
  
  # Custom CM packages
  PRODUCT_PACKAGES += \
 -    AudioFX \
      CMSettingsProvider \
--    CMUpdater \
      LineageSetupWizard \
 -    Eleven \
      ExactCalculator \
 -    Jelly \
--    LiveLockScreenService \
      LockClock \
      Trebuchet \
+-    Updater \
 -    WallpaperPicker \
 -    WeatherProvider
 -
