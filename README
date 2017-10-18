@@ -1,3 +1,10 @@
 This repository contains patches in doiff format to be applied over LineageOS base code in order to build a barebones image of the operative system.
 This will be updated when needed after every monthly security update.
 Some of the deletions may not be needed by some devices so this patches are yet to be perfect and clean solutions.
+
+You can automatically fetch updates by adding this line to the manifest of your .repo/local_manifest/roomservice.xml
+<project name="Eskuero/patches_lineageos" path="patches" remote="github" />
+
+And then apply it on the top of your android directory with:
+
+$ ./patches/apply
