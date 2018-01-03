@@ -1,26 +1,25 @@
 diff --git a/BoardConfigCommon.mk b/BoardConfigCommon.mk
-index 4fa6c84..ebc01a2 100644
+index 6bdea92..e75b192 100644
 --- a/BoardConfigCommon.mk
 +++ b/BoardConfigCommon.mk
-@@ -79,10 +79,6 @@ TARGET_USES_C2D_COMPOSITION := true
+@@ -76,9 +76,6 @@ TARGET_USES_C2D_COMPOSITION := true
  TARGET_USES_ION := true
  USE_OPENGL_RENDERER := true
 
 -# FM
--BOARD_HAVE_QCOM_FM := true
 -TARGET_QCOM_NO_FM_FIRMWARE := true
 -
- # Filesystem
- TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
+ # Init
+ TARGET_UNIFIED_DEVICE := true
 
 diff --git a/msm8916.mk b/msm8916.mk
-index b60cbc3..c0334cb 100644
+index e6fe02c..e0ecfad 100644
 --- a/msm8916.mk
 +++ b/msm8916.mk
-@@ -79,10 +79,6 @@ PRODUCT_PACKAGES += \
+@@ -84,10 +84,6 @@ PRODUCT_PACKAGES += \
      libbson \
      Snap
- 
+
 -# CMActions
 -PRODUCT_PACKAGES += \
 -    CMActions
@@ -28,7 +27,7 @@ index b60cbc3..c0334cb 100644
  # Display
  PRODUCT_PACKAGES += \
      gralloc.msm8916 \
-@@ -102,11 +98,6 @@ PRODUCT_COPY_FILES += \
+@@ -107,11 +103,6 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/extract_firmware.sh:install/bin/extract_firmware.sh
  endif
 
@@ -37,6 +36,6 @@ index b60cbc3..c0334cb 100644
 -    FMRadio \
 -    libfmjni
 -
- # For android_filesystem_config.h
+ # GPS
  PRODUCT_PACKAGES += \
-     fs_config_files
+     gps.msm8916
