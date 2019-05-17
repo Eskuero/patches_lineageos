@@ -1,7 +1,7 @@
-diff --git a/target/product/core.mk b/target/product/core.mk
+diff --git a/make/target/product/core.mk b/make/target/product/core.mk
 index dfce36015..1e7ed122f 100644
---- a/target/product/core.mk
-+++ b/target/product/core.mk
+--- a/make/target/product/core.mk
++++ b/make/target/product/core.mk
 @@ -21,10 +21,7 @@
  # core_tiny.mk in addition to core_minimal.mk.
  
@@ -21,10 +21,10 @@ index dfce36015..1e7ed122f 100644
      ExactCalculator \
      ExternalStorageProvider \
      FusedLocation \
-diff --git a/target/product/core_minimal.mk b/target/product/core_minimal.mk
+diff --git a/make/target/product/core_minimal.mk b/make/target/product/core_minimal.mk
 index b8e04e0ca..96ac275fb 100644
---- a/target/product/core_minimal.mk
-+++ b/target/product/core_minimal.mk
+--- a/make/target/product/core_minimal.mk
++++ b/make/target/product/core_minimal.mk
 @@ -25,19 +25,15 @@ PRODUCT_NAME := core
  PRODUCT_PACKAGES += \
      BackupRestoreConfirmation \
@@ -45,10 +45,10 @@ index b8e04e0ca..96ac275fb 100644
      android.hidl.base-V1.0-java \
      android.hidl.manager-V1.0-java \
      bcc \
-diff --git a/target/product/core_tiny.mk b/target/product/core_tiny.mk
+diff --git a/make/target/product/core_tiny.mk b/make/target/product/core_tiny.mk
 index 4ef7b48fa..3ca1f7024 100644
---- a/target/product/core_tiny.mk
-+++ b/target/product/core_tiny.mk
+--- a/make/target/product/core_tiny.mk
++++ b/make/target/product/core_tiny.mk
 @@ -36,15 +36,12 @@ PRODUCT_PACKAGES += \
  
  PRODUCT_PACKAGES += \
@@ -65,10 +65,10 @@ index 4ef7b48fa..3ca1f7024 100644
      android.hidl.base-V1.0-java \
      android.hidl.manager-V1.0-java \
      bcc \
-diff --git a/target/product/generic_no_telephony.mk b/target/product/generic_no_telephony.mk
+diff --git a/make/target/product/generic_no_telephony.mk b/make/target/product/generic_no_telephony.mk
 index e266cc36d..f0ab77d35 100644
---- a/target/product/generic_no_telephony.mk
-+++ b/target/product/generic_no_telephony.mk
+--- a/make/target/product/generic_no_telephony.mk
++++ b/make/target/product/generic_no_telephony.mk
 @@ -20,9 +20,6 @@
  PRODUCT_PACKAGES := \
      Bluetooth \
@@ -87,10 +87,10 @@ index e266cc36d..f0ab77d35 100644
      WallpaperCropper
  
  PRODUCT_PACKAGES += \
-diff --git a/target/product/sdk_base.mk b/target/product/sdk_base.mk
+diff --git a/make/target/product/sdk_base.mk b/make/target/product/sdk_base.mk
 index 1e5ed1928..0745b828b 100644
---- a/target/product/sdk_base.mk
-+++ b/target/product/sdk_base.mk
+--- a/make/target/product/sdk_base.mk
++++ b/make/target/product/sdk_base.mk
 @@ -17,16 +17,11 @@
  PRODUCT_PROPERTY_OVERRIDES :=
  
