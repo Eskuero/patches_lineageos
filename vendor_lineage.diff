@@ -1,40 +1,30 @@
 diff --git a/config/common.mk b/config/common.mk
-index 2d27a50d..6f4962b2 100644
+index 2aec1f79..99012888 100644
 --- a/config/common.mk
 +++ b/config/common.mk
-@@ -97,18 +97,12 @@ PRODUCT_PACKAGES += \
- # Required CM packages
+@@ -127,32 +127,16 @@ PRODUCT_PACKAGES += \
+ # Required Lineage packages
  PRODUCT_PACKAGES += \
-     BluetoothExt \
--    CMAudioService \
-     CMParts \
+     LineageParts \
 -    Development \
--    Profiles \
--    WeatherManagerService
-+    Profiles
+     Profiles
  
- # Optional CM packages
- PRODUCT_PACKAGES += \
--    libemoji \
+-# Optional packages
+-PRODUCT_PACKAGES += \
 -    LiveWallpapersPicker \
 -    PhotoTable \
 -    Terminal
-+    libemoji
- 
- # Include explicitly to work around GMS issues
- PRODUCT_PACKAGES += \
-@@ -117,21 +111,12 @@ PRODUCT_PACKAGES += \
- 
- # Custom CM packages
+-
+ # Custom Lineage packages
  PRODUCT_PACKAGES += \
 -    AudioFX \
-     CMSettingsProvider \
+     LineageSettingsProvider \
      LineageSetupWizard \
 -    Eleven \
      ExactCalculator \
 -    Jelly \
      LockClock \
-     Trebuchet \
+     TrebuchetQuickStep \
 -    Updater \
 -    WallpaperPicker \
 -    WeatherProvider
@@ -44,14 +34,14 @@ index 2d27a50d..6f4962b2 100644
 -    Exchange2
 +    WallpaperPicker
  
- # Extra tools in CM
+ # Berry styles
  PRODUCT_PACKAGES += \
 diff --git a/config/common_full.mk b/config/common_full.mk
-index c475a68e..df030a2a 100644
+index 8a2b02ee..3b9b8de4 100644
 --- a/config/common_full.mk
 +++ b/config/common_full.mk
 @@ -2,7 +2,3 @@
- $(call inherit-product, vendor/cm/config/common.mk)
+ $(call inherit-product, vendor/lineage/config/common.mk)
  
  PRODUCT_SIZE := full
 -
@@ -59,10 +49,10 @@ index c475a68e..df030a2a 100644
 -PRODUCT_PACKAGES += \
 -    Recorder
 diff --git a/config/telephony.mk b/config/telephony.mk
-index d6a5b01d..01959877 100644
+index 069e82a1..1d92f1e5 100644
 --- a/config/telephony.mk
 +++ b/config/telephony.mk
-@@ -8,9 +8,7 @@ PRODUCT_COPY_FILES += \
+@@ -8,9 +8,7 @@ PRODUCT_PACKAGES += \
  
  # Telephony packages
  PRODUCT_PACKAGES += \
@@ -72,4 +62,4 @@ index d6a5b01d..01959877 100644
 +    messaging
  
  # Default ringtone
- PRODUCT_PROPERTY_OVERRIDES += \
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \

@@ -5,22 +5,6 @@ BASEDIR=$(pwd);
 cd $BASEDIR/build;
 git apply $BASEDIR/patches/build.diff;
 
-# Change default DPI
-cd $BASEDIR/device/motorola/lux;
-git apply $BASEDIR/patches/device_motorola_lux.diff;
-
-# Disable RadioFM
-cd $BASEDIR/device/motorola/msm8916-common;
-git apply $BASEDIR/patches/device_motorola_msm8916-common.diff;
-
-# Force deep doze regardless of sensor and skip GMS check
-cd $BASEDIR/frameworks/base;
-git apply $BASEDIR/patches/frameworks_base.diff;
-
 # Disable basic LineageOS packages
-cd $BASEDIR/vendor/cm;
-git apply $BASEDIR/patches/vendor_cm.diff;
-
-# Do not copy certain prebuilt packages
-cd $BASEDIR/vendor/motorola/;
-git apply $BASEDIR/patches/vendor_motorola.diff;
+cd $BASEDIR/vendor/lineage;
+git apply $BASEDIR/patches/vendor_lineage.diff;

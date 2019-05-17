@@ -1,5 +1,5 @@
 diff --git a/target/product/core.mk b/target/product/core.mk
-index 28558c55f..e04b65531 100644
+index dfce36015..1e7ed122f 100644
 --- a/target/product/core.mk
 +++ b/target/product/core.mk
 @@ -21,10 +21,7 @@
@@ -10,35 +10,25 @@ index 28558c55f..e04b65531 100644
      BlockedNumberProvider \
 -    BookmarkProvider \
 -    Browser2 \
+     BuiltInPrintService \
      Calendar \
      CalendarProvider \
-     CaptivePortalLogin \
-@@ -33,9 +30,7 @@ PRODUCT_PACKAGES += \
+@@ -34,7 +31,6 @@ PRODUCT_PACKAGES += \
      DeskClock \
      DocumentsUI \
      DownloadProviderUi \
 -    Email \
      ExactCalculator \
--    Exchange2 \
      ExternalStorageProvider \
      FusedLocation \
-     InputDevices \
-@@ -44,7 +39,6 @@ PRODUCT_PACKAGES += \
-     Launcher2 \
-     ManagedProvisioning \
-     MtpDocumentsProvider \
--    PicoTts \
-     PacProcessor \
-     libpac \
-     PrintSpooler \
 diff --git a/target/product/core_minimal.mk b/target/product/core_minimal.mk
-index 0e60013f5..50a1eb6fd 100644
+index b8e04e0ca..96ac275fb 100644
 --- a/target/product/core_minimal.mk
 +++ b/target/product/core_minimal.mk
-@@ -24,18 +24,14 @@ PRODUCT_NAME := core
- 
+@@ -25,19 +25,15 @@ PRODUCT_NAME := core
  PRODUCT_PACKAGES += \
      BackupRestoreConfirmation \
+     CompanionDeviceManager \
 -    CtsShimPrebuilt \
 -    CtsShimPrivPrebuilt \
      DownloadProvider \
@@ -47,18 +37,19 @@ index 0e60013f5..50a1eb6fd 100644
 -    HTMLViewer \
      MediaProvider \
      PackageInstaller \
+     SecureElement \
      SettingsProvider \
      Shell \
      StatementService \
 -    WallpaperBackup \
+     android.hidl.base-V1.0-java \
+     android.hidl.manager-V1.0-java \
      bcc \
-     bu \
-     com.android.future.usb.accessory \
 diff --git a/target/product/core_tiny.mk b/target/product/core_tiny.mk
-index ec2fa41d1..bf96ebde1 100644
+index 4ef7b48fa..3ca1f7024 100644
 --- a/target/product/core_tiny.mk
 +++ b/target/product/core_tiny.mk
-@@ -37,14 +37,11 @@ PRODUCT_PACKAGES += \
+@@ -36,15 +36,12 @@ PRODUCT_PACKAGES += \
  
  PRODUCT_PACKAGES += \
      BackupRestoreConfirmation \
@@ -67,17 +58,18 @@ index ec2fa41d1..bf96ebde1 100644
      DefaultContainerService \
      ExtShared \
      ExtServices \
+     SecureElement \
      SettingsProvider \
      Shell \
 -    WallpaperBackup \
+     android.hidl.base-V1.0-java \
+     android.hidl.manager-V1.0-java \
      bcc \
-     bu \
-     com.android.location.provider \
 diff --git a/target/product/generic_no_telephony.mk b/target/product/generic_no_telephony.mk
-index 6c23fbb7d..b9f61ddf2 100644
+index e266cc36d..f0ab77d35 100644
 --- a/target/product/generic_no_telephony.mk
 +++ b/target/product/generic_no_telephony.mk
-@@ -20,14 +20,10 @@
+@@ -20,9 +20,6 @@
  PRODUCT_PACKAGES := \
      Bluetooth \
      BluetoothMidiService \
@@ -87,28 +79,40 @@ index 6c23fbb7d..b9f61ddf2 100644
      MusicFX \
      OneTimeInitializer \
      Provision \
-     SystemUI \
+@@ -31,7 +28,6 @@ PRODUCT_PACKAGES := \
+     DisplayCutoutEmulationDoubleOverlay \
+     DisplayCutoutEmulationCornerOverlay \
+     DisplayCutoutEmulationTallOverlay \
 -    EasterEgg \
      WallpaperCropper
  
  PRODUCT_PACKAGES += \
 diff --git a/target/product/sdk_base.mk b/target/product/sdk_base.mk
-index fa257aeff..17360671f 100644
+index 1e5ed1928..0745b828b 100644
 --- a/target/product/sdk_base.mk
 +++ b/target/product/sdk_base.mk
-@@ -32,7 +32,6 @@ PRODUCT_PACKAGES := \
- 	libwnndict \
- 	libWnnEngDic \
- 	libWnnJpnDic \
+@@ -17,16 +17,11 @@
+ PRODUCT_PROPERTY_OVERRIDES :=
+ 
+ PRODUCT_PACKAGES := \
+-	CellBroadcastReceiver \
+ 	CubeLiveWallpapers \
+ 	CustomLocale \
+-	Development \
+ 	Dialer \
+-	Gallery2 \
+ 	Launcher3QuickStep \
+-	Camera2 \
+ 	librs_jni \
 -	LiveWallpapersPicker \
  	Mms \
  	Music \
- 	OpenWnn \
-@@ -44,7 +43,6 @@ PRODUCT_PACKAGES := \
- 	SoftKeyboard \
+ 	Protips \
+@@ -37,7 +32,6 @@ PRODUCT_PACKAGES := \
  	sqlite3 \
  	SystemUI \
+ 	SysuiDarkThemeOverlay \
 -	EasterEgg \
- 	WidgetPreview
+ 	WallpaperPicker \
+ 	WidgetPreview \
  
- # Define the host tools and libs that are parts of the SDK.
