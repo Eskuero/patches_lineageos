@@ -8,3 +8,7 @@ git apply $BASEDIR/patches/build.diff;
 # Disable basic LineageOS packages
 cd $BASEDIR/vendor/lineage;
 git apply $BASEDIR/patches/vendor_lineage.diff;
+
+# microG signature spoofing patch
+cd $BASEDIR/frameworks/base;
+git apply $BASEDIR/frameworks_base.diff
