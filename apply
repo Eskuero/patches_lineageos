@@ -5,6 +5,10 @@ BASEDIR=$(pwd);
 cd $BASEDIR/build;
 git apply $BASEDIR/patches/build.diff;
 
+# Device patches
+cd $BASEDIR/device/xiaomi/daisy;
+git apply $BASEDIR/patches/device_xiaomi_daisy.diff;
+
 # Disable basic LineageOS packages
 cd $BASEDIR/vendor/lineage;
 git apply $BASEDIR/patches/vendor_lineage.diff;

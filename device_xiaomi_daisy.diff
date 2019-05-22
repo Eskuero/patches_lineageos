@@ -1,0 +1,12 @@
+diff --git a/device-props.mk b/device-props.mk
+index 4154f41..c14c0d0 100644
+--- a/device-props.mk
++++ b/device-props.mk
+@@ -23,6 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
+ 
+ # Display
+ PRODUCT_PROPERTY_OVERRIDES += \
++    ro.sf.lcd_density=432 \
+     debug.egl.hw=0 \
+     debug.enable.sglscale=1 \
+     debug.gralloc.enable_fb_ubwc=1 \
