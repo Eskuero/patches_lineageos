@@ -11,4 +11,4 @@ git apply $BASEDIR/patches/vendor_lineage.diff;
 
 # microG signature spoofing patch
 cd $BASEDIR/frameworks/base;
-git apply $BASEDIR/frameworks_base.diff
+git apply $BASEDIR/patches/frameworks_base.diff
