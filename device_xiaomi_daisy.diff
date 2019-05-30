@@ -1,8 +1,8 @@
 diff --git a/device-props.mk b/device-props.mk
-index 4154f41..c14c0d0 100644
+index a9b68d2..2986f56 100644
 --- a/device-props.mk
 +++ b/device-props.mk
-@@ -23,6 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -25,6 +25,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
  
  # Display
  PRODUCT_PROPERTY_OVERRIDES += \
@@ -10,3 +10,18 @@ index 4154f41..c14c0d0 100644
      debug.egl.hw=0 \
      debug.enable.sglscale=1 \
      debug.gralloc.enable_fb_ubwc=1 \
+diff --git a/device.mk b/device.mk
+index 31079c0..09354e7 100644
+--- a/device.mk
++++ b/device.mk
+@@ -39,10 +39,6 @@ AB_OTA_PARTITIONS += \
+     boot \
+     system
+ 
+-PRODUCT_PACKAGES += \
+-    update_engine \
+-    update_engine_client
+-
+ # AID/fs configs
+ PRODUCT_PACKAGES += \
+     fs_config_files
