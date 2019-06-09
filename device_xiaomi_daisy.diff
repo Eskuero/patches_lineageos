@@ -11,17 +11,44 @@ index a9b68d2..2986f56 100644
      debug.enable.sglscale=1 \
      debug.gralloc.enable_fb_ubwc=1 \
 diff --git a/device.mk b/device.mk
-index 31079c0..09354e7 100644
+index 82b9860..1541867 100644
 --- a/device.mk
 +++ b/device.mk
-@@ -39,10 +39,6 @@ AB_OTA_PARTITIONS += \
+@@ -39,15 +39,6 @@ AB_OTA_PARTITIONS += \
      boot \
      system
  
+-AB_OTA_POSTINSTALL_CONFIG += \
+-    RUN_POSTINSTALL_system=true \
+-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+-    FILESYSTEM_TYPE_system=ext4 \
+-    POSTINSTALL_OPTIONAL_system=true
+-
 -PRODUCT_PACKAGES += \
--    update_engine \
--    update_engine_client
+-    otapreopt_script
 -
  # AID/fs configs
  PRODUCT_PACKAGES += \
      fs_config_files
+@@ -128,21 +119,12 @@ PRODUCT_BOOT_JARS += \
+ PRODUCT_PACKAGES += \
+     lineage.trust@1.0-service
+ 
+-# Update engine
+-PRODUCT_PACKAGES += \
+-    brillo_update_payload \
+-    update_engine \
+-    update_verifier
+-
+ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+     bootctrl.msm8953 \
+     libcutils \
+     libgptutils \
+     libz
+ 
+-PRODUCT_PACKAGES_DEBUG += \
+-    update_engine_client
+-
+ # USB
+ PRODUCT_PACKAGES += \
+     android.hardware.usb@1.0-service.daisy

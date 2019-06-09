@@ -1,8 +1,8 @@
 diff --git a/config/common.mk b/config/common.mk
-index 2aec1f79..99012888 100644
+index d2f84853..09b9c536 100644
 --- a/config/common.mk
 +++ b/config/common.mk
-@@ -127,32 +127,16 @@ PRODUCT_PACKAGES += \
+@@ -128,32 +128,16 @@ PRODUCT_PACKAGES += \
  # Required Lineage packages
  PRODUCT_PACKAGES += \
      LineageParts \
@@ -18,21 +18,21 @@ index 2aec1f79..99012888 100644
  # Custom Lineage packages
  PRODUCT_PACKAGES += \
 -    AudioFX \
+     Backgrounds \
      LineageSettingsProvider \
      LineageSetupWizard \
 -    Eleven \
      ExactCalculator \
 -    Jelly \
      LockClock \
-     TrebuchetQuickStep \
+-    TrebuchetQuickStep \
 -    Updater \
--    WallpaperPicker \
 -    WeatherProvider
 -
 -# Exchange support
 -PRODUCT_PACKAGES += \
 -    Exchange2
-+    WallpaperPicker
++    TrebuchetQuickStep
  
  # Berry styles
  PRODUCT_PACKAGES += \
